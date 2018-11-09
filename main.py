@@ -1,9 +1,9 @@
 import vk_api
-import get_friend_list
+import get_for_all_friends
 
 
 def main():
-    print(get_friend_list.get_friends(1,1,1))
+    get_for_all_friends.write_info(1, 1, 1, 1, 1)
 
 
 main()
