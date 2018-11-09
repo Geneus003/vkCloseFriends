@@ -14,7 +14,9 @@ def get_friends(target_id, username, passwordik):
 
     vk = vk_session.get_api()
 
-    friend_list = vk.friends.get(user_id=target_id, fields="nickname")
-
+    try:
+        friend_list = vk.friends.get(user_id=target_id, fields="nickname")
+    except vk_api.exceptions.ApiError as error_msg:
+        return [1]
     return friend_list
 
