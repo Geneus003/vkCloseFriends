@@ -1,5 +1,6 @@
 import vk_api
 import get_friend_list
+import check_name_in_file
 
 
 def write_info(first_name, us_id, con, username, passwordik):
@@ -21,9 +22,12 @@ def write_info(first_name, us_id, con, username, passwordik):
                 print("HERE", i)
             print(i)
             if friends_list[i]["first_name"] == first_name:
-                f = open("us_id", 'ta', encoding='utf-8')
-                print(friends_list[i]["first_name"], friends_list[i]["last_name"], friends_list[i]["id"], file=f)
-                f.close()
+                friend_info = friends_list[i]["first_name"] + " " + friends_list[i]["last_name"]
+                friend_info += " " + str(friends_list[i]["id"])
+                if check_name_in_file.check_name(friend_info) == 0:
+                    f = open("us_id", 'ta', encoding='utf-8')
+                    print(friend_info, file=f)
+                    f.close()
 
             print(friends_list[i]["first_name"])
             write_info(first_name, str(friends_list[i]['id']), con+1, username, passwordik)
@@ -32,6 +36,9 @@ def write_info(first_name, us_id, con, username, passwordik):
         print(friends_list)
         for i in range(len(friends_list)):
             if friends_list[i]["first_name"] == first_name:
-                f = open("us_id", 'ta', encoding='utf-8')
-                print(friends_list[i]["first_name"], friends_list[i]["last_name"], str(friends_list[i]["id"]), file=f)
-                f.close()
+                friend_info = friends_list[i]["first_name"] + " " + friends_list[i]["last_name"]
+                friend_info += " " + str(friends_list[i]["id"])
+                if check_name_in_file.check_name(friend_info) == 0:
+                    f = open("us_id", 'ta', encoding='utf-8')
+                    print(friend_info, file=f)
+                    f.close()
