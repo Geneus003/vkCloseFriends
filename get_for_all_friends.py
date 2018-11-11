@@ -4,6 +4,10 @@ import check_name_in_file
 
 
 def write_info(first_name, oficial_name, us_id, con, username, passwordik):
+
+    # Function to write and match first name and name of user
+    # You can change counter of next people (Here - 2)
+
     friends_list = get_friend_list.get_friends(us_id, username, passwordik)
 
     if friends_list == [1]:

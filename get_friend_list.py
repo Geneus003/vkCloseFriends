@@ -2,6 +2,10 @@ import vk_api
 
 
 def get_friends(target_id, username, passwordik):
+
+    # This functions gets list of friends for actual user
+    # Do not fix here anything and you shouldn't forget about counter of requests(more than 3000)
+
     login, password = username, passwordik
 
     vk_session = vk_api.VkApi(login, password)
